@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Human {
     public Animal pet;
-    public Car myCar;
+    private Car myCar;
     private Double salary;
 
     public Double getSalary() {
@@ -21,5 +21,22 @@ public class Human {
             this.salary = salary;
         } else
             System.out.println("Wartośc nieprawisłowa.");
+    }
+
+    public Car getMyCar() {
+        return this.myCar;
+    }
+
+    public void setMyCar(Car myCar) {
+        if(salary > myCar.value){
+            System.out.println("Kupiłeś samochód za gotówkę.");
+            this.myCar = myCar;
+        }
+        else if(salary > 1/12.0 * myCar.value){
+            System.out.println("Kupiono samochód na kredyt.");
+            this.myCar = myCar;
+        }
+        else
+            System.out.println("Nie stać Cię na samochód.");
     }
 }

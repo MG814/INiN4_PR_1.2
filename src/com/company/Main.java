@@ -11,11 +11,12 @@ public class Main {
         animal1.feed();
 
         Human me = new Human();
-        Car car1 = new Car("KIA","Sportage",2016,"red");
+        Car car1 = new Car("KIA","Sportage",2016,"red",89500.0);
 
-        me.myCar = car1;
-
-        me.setSalary(3500.0);
+        me.setSalary(90000.0);
         me.getSalary();
+
+        me.setMyCar(car1);
+
     }
 }
