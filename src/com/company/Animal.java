@@ -41,5 +41,8 @@ public class Animal {
             System.out.println("Zwierzę nie żyje.");
     }
 
-
+    @Override
+    public String toString() {
+        return "species: " + species  + " weight: " + weight + " kg" ;
+    }
 }

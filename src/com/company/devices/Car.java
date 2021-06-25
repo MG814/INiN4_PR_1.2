@@ -1,4 +1,4 @@
-package com.company;
+package com.company.devices;
 
 public class Car {
     public final String model;
@@ -13,5 +13,11 @@ public class Car {
         this.year = year;
         this.color = color;
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "model: " + model + " producer: " + producer + " year: " + year +
+                " color: " + color + " value: " + value;
     }
 }

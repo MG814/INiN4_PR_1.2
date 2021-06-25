@@ -1,11 +1,22 @@
 package com.company;
 
+import com.company.devices.Car;
+
 import java.util.Date;
 
 public class Human {
     public Animal pet;
     private Car myCar;
     private Double salary;
+    private String name;
+    private String lastname;
+    private int age;
+
+    public Human(String name,String lastname, int age){
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+    }
 
     public Double getSalary() {
         System.out.println("Informację pobrano: " + new Date());
@@ -38,5 +49,10 @@ public class Human {
         }
         else
             System.out.println("Nie stać Cię na samochód.");
+    }
+
+    @Override
+    public String toString() {
+        return "name: " + name + " lastname: " + lastname + " age: " + age;
     }
 }
