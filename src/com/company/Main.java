@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -14,11 +15,14 @@ public class Main {
 
         Human me = new Human("Michał","Gotner",26);
         Car car1 = new Car("KIA","Sportage",2016,"red",89500.0);
+        Phone mobilePhone = new Phone("SAMSUNG","Galexy A5",2015);
 
         me.setSalary(90000.0);
         me.getSalary();
 
         me.setMyCar(car1);
 
+        car1.turnOn();
+        mobilePhone.turnOn();
     }
 }
