@@ -14,5 +14,8 @@ public class Main {
         Car car1 = new Car("KIA","Sportage",2016,"red");
 
         me.myCar = car1;
+
+        me.setSalary(3500.0);
+        me.getSalary();
     }
 }
