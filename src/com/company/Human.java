@@ -1,21 +1,25 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.util.Date;
 
 public class Human {
     public Animal pet;
     private Car myCar;
+    public Phone myPhone;
     private Double salary;
     private String name;
     private String lastname;
     private int age;
+    public double cash;
 
-    public Human(String name,String lastname, int age){
+    public Human(String name,String lastname, int age,double cash){
         this.name = name;
         this.lastname = lastname;
         this.age = age;
+        this.cash = cash;
     }
 
     public Double getSalary() {
@@ -35,7 +39,7 @@ public class Human {
     }
 
     public Car getMyCar() {
-        return this.myCar;
+            return this.myCar;
     }
 
     public void setMyCar(Car myCar) {
