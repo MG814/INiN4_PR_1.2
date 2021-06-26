@@ -1,6 +1,9 @@
-package com.company;
+package com.company.creatures;
 
-public class Animal implements Sellable{
+import com.company.Human;
+import com.company.Sellable;
+
+public abstract class Animal implements Sellable, Feedable{
     public final String species;
     private Double weight;
     private final Double DEFAULT_WEIGHT = 1.0;
@@ -23,9 +26,22 @@ public class Animal implements Sellable{
         }
     }
 
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
     public void feed(){
         if(weight > 0.0){
             weight+=1;
+            System.out.println(species + " " + weight + " kg");
+        }
+        else
+            System.out.println("Zwierzę nie żyje.");
+    }
+
+    public void feed(Double foodWeight){
+        if(weight > 0.0){
+            weight+=foodWeight;
             System.out.println(species + " " + weight + " kg");
         }
         else
