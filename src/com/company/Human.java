@@ -60,4 +60,9 @@ public class Human {
     public String toString() {
         return "name: " + name + " lastname: " + lastname + " age: " + age;
     }
+
+
+    public void removeCar() {
+        this.myCar = null;
+    }
 }

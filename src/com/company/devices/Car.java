@@ -3,7 +3,7 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Sellable;
 
-public class Car extends Device implements Sellable {
+public abstract class Car extends Device implements Sellable {
 
     public String color;
     public Double value;
@@ -28,15 +28,16 @@ public class Car extends Device implements Sellable {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        Car caro = new Car(null,null,0,null,0.0);
         if(seller.getMyCar() != null && buyer.cash >= price){
             buyer.cash -= price;
             seller.cash += price;
             buyer.setMyCar(seller.getMyCar());
-            seller.setMyCar(caro);
+            seller.removeCar();
             System.out.println("Kupujący nabył "+buyer.getMyCar()+" za kwotę "+price+"zl.");
         }
         else
             System.out.println("Upewnij się czy sprzedający ma samochód lub czy kupujący ma wystarczająco pieniędzy.");
     }
+
+    public abstract void refuel();
 }
