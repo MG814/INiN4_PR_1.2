@@ -5,14 +5,17 @@ import com.company.Sellable;
 
 public abstract class Car extends Device implements Sellable {
 
-    public String color;
-    public Double value;
-    public Car cart;
+    private String color;
+    private Double value;
 
     public Car(String producer,String model, int year,String color,Double value){
         super(producer,model,year);
         this.color = color;
         this.value = value;
+    }
+
+    public Double getValue() {
+        return value;
     }
 
     @Override
@@ -28,9 +31,9 @@ public abstract class Car extends Device implements Sellable {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        if(seller.getMyCar() != null && buyer.cash >= price){
-            buyer.cash -= price;
-            seller.cash += price;
+        if(seller.getMyCar() != null && buyer.getCash() >= price){
+            buyer.setCash(buyer.getCash() - price);
+            seller.setCash(seller.getCash() + price);
             buyer.setMyCar(seller.getMyCar());
             seller.removeCar();
             System.out.println("Kupujący nabył "+buyer.getMyCar()+" za kwotę "+price+"zl.");

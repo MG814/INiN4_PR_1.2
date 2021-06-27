@@ -64,13 +64,13 @@ public abstract class Animal implements Sellable, Feedable{
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        if (seller.pet != null && buyer.cash >= price)
+        if (seller.getPet() != null && buyer.getCash() >= price)
         {
-            buyer.cash -=price;
-            seller.cash +=price;
-            buyer.pet = seller.pet;
-            seller.pet = null;
-            System.out.println("Kupujący nabył "+buyer.pet.species+" za kwotę "+price+"zl.");
+            buyer.setCash(buyer.getCash() - price);
+            seller.setCash(seller.getCash() + price);
+            buyer.setPet(seller.getPet());
+            seller.removePet();
+            System.out.println("Kupujący nabył "+buyer.getPet().species+" za kwotę "+price+"zl.");
         }
         else
             System.out.println("Upewnij się czy sprzedający ma zwierzę lub czy kupujący ma wystarczająco pieniędzy.");

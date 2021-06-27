@@ -29,12 +29,12 @@ public class Phone extends Device implements Sellable {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        if(seller.myPhone != null && buyer.cash >= price){
-            buyer.cash -= price;
-            seller.cash += price;
-            buyer.myPhone = seller.myPhone;
-            seller.myPhone = null;
-            System.out.println("Kupujący nabył "+buyer.myPhone +" za kwotę "+price+" zl.");
+        if(seller.getMyPhone() != null && buyer.getCash() >= price){
+            buyer.setCash(buyer.getCash() - price);
+            seller.setCash(seller.getCash() + price);
+            buyer.setMyPhone(seller.getMyPhone());
+            seller.removePhone();
+            System.out.println("Kupujący nabył "+buyer.getMyPhone() +" za kwotę "+price+" zl.");
         }
         else
             System.out.println("Upewnij się czy sprzedający ma telefon lub czy kupujący ma wystarczająco pieniędzy.");

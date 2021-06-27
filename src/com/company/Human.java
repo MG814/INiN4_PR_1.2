@@ -7,19 +7,43 @@ import com.company.devices.Phone;
 import java.util.Date;
 
 public class Human {
-    public Animal pet;
+    private Animal pet;
     private Car myCar;
-    public Phone myPhone;
+    private Phone myPhone;
     private Double salary;
     private String name;
     private String lastname;
     private int age;
-    public double cash;
+    private Double cash = 0.0;
 
-    public Human(String name,String lastname, int age,double cash){
+    public Human(String name,String lastname, int age, Double cash){
         this.name = name;
         this.lastname = lastname;
         this.age = age;
+        this.cash = cash;
+    }
+
+    public Phone getMyPhone(){
+        return this.myPhone;
+    }
+
+    public void setMyPhone(Phone myPhone){
+        this.myPhone = myPhone;
+    }
+
+    public Animal getPet(){
+        return this.pet;
+    }
+
+    public void setPet(Animal pet){
+        this.pet = pet;
+    }
+
+    public Double getCash(){
+        return this.cash;
+    }
+
+    public void setCash(Double cash){
         this.cash = cash;
     }
 
@@ -44,11 +68,11 @@ public class Human {
     }
 
     public void setMyCar(Car myCar) {
-        if(salary > myCar.value){
+        if(salary > myCar.getValue()){
             System.out.println("Kupiłeś samochód za gotówkę.");
             this.myCar = myCar;
         }
-        else if(salary > 1/12.0 * myCar.value){
+        else if(salary > 1/12.0 * myCar.getValue()){
             System.out.println("Kupiono samochód na kredyt.");
             this.myCar = myCar;
         }
@@ -64,5 +88,13 @@ public class Human {
 
     public void removeCar() {
         this.myCar = null;
+    }
+
+    public void removePet() {
+        this.pet = null;
+    }
+
+    public void removePhone() {
+        this.myPhone = null;
     }
 }
