@@ -13,8 +13,8 @@ public class Phone extends Device implements Sellable {
     static final String DEFAULT_APP_VERSION = "2.13/PB85";
     static final String DEFAULT_PROTOCOL = "https";
 
-    public Phone(String producer, String model, int year){
-        super(producer,model,year);
+    public Phone(String producer, String model, int year,Double value){
+        super(producer,model,year,value);
     }
 
     @Override

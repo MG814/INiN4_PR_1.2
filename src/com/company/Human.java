@@ -8,19 +8,29 @@ import java.util.Date;
 
 public class Human {
     private Animal pet;
-    private Car myCar;
+    private Car[] garage;
     private Phone myPhone;
     private Double salary;
     private String name;
     private String lastname;
     private int age;
     private Double cash = 0.0;
+    private static final int Default_Garage_Size = 4;
 
     public Human(String name,String lastname, int age, Double cash){
         this.name = name;
         this.lastname = lastname;
         this.age = age;
         this.cash = cash;
+        this.garage = new Car[Default_Garage_Size];
+    }
+
+    public Human(String name,String lastname, int age, Double cash, int garageSize){
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+        this.cash = cash;
+        this.garage = new Car[garageSize];
     }
 
     public Phone getMyPhone(){
@@ -63,18 +73,18 @@ public class Human {
             System.out.println("Wartośc nieprawisłowa.");
     }
 
-    public Car getMyCar() {
-            return this.myCar;
+    public Car getMyCar(int parkNumber) {
+        return this.garage[parkNumber];
     }
 
-    public void setMyCar(Car myCar) {
+    public void setMyCar(Car myCar, int parkNumber) {
         if(salary > myCar.getValue()){
             System.out.println("Kupiłeś samochód za gotówkę.");
-            this.myCar = myCar;
+            this.garage[parkNumber] = myCar;
         }
         else if(salary > 1/12.0 * myCar.getValue()){
             System.out.println("Kupiono samochód na kredyt.");
-            this.myCar = myCar;
+            this.garage[parkNumber] = myCar;
         }
         else
             System.out.println("Nie stać Cię na samochód.");
@@ -86,8 +96,11 @@ public class Human {
     }
 
 
-    public void removeCar() {
-        this.myCar = null;
+    public void removeCar(Car car) {
+        for(int i = 0; i < this.garage.length; i++){
+            if(car == this.garage[i])
+                this.garage[i] = null;
+        }
     }
 
     public void removePet() {
@@ -96,5 +109,41 @@ public class Human {
 
     public void removePhone() {
         this.myPhone = null;
+    }
+
+    public boolean haveCar(Car car) {
+        for(int i = 0; i < this.garage.length; i++){
+            if(car == this.garage[i])
+                return true;
+        }
+        return false;
+    }
+
+    public boolean haveFreeSpace() {
+        for(int i = 0; i < this.garage.length; i++){
+            if(this.garage[i] == null)
+                return true;
+        }
+        return false;
+    }
+
+    public void addCar(Car car) {
+        for(int i = 0; i < this.garage.length; i++){
+            if(this.garage[i] == null){
+                this.garage[i] = car;
+                break;
+            }
+
+        }
+    }
+
+    public void valueGarage(){
+        Double sum = 0.0;
+        for(int i = 0; i < this.garage.length; i++){
+            if(this.garage[i] != null){
+                sum += this.garage[i].getValue();
+            }
+        }
+        System.out.println("Suma wartości aut wynosi: "+sum);
     }
 }
