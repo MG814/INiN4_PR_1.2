@@ -38,6 +38,8 @@ public class Main {
         seller.setSalary(100000.0);
         buyer.setSalary(300000.0);
         seller.setMyCar(car1,0);
+        seller.setMyCar(car1,1);
+        seller.setMyCar(fiat,2);
         System.out.println(seller.getMyCar(0));
         car1.sell(seller, buyer, 90000.0);
         System.out.println(seller.getMyCar(0));
@@ -53,6 +55,7 @@ public class Main {
         nissan.refuel();
 
         buyer.valueGarage();
+        seller.valueGarage();
 
         Car[] cars = new Car[4];
         cars[0] = new Disel("Kia","Soul",2011,"silver",22000.0);
@@ -62,5 +65,17 @@ public class Main {
         System.out.println(Arrays.deepToString(cars));
         Arrays.sort(cars, new CarYearComparator());
         System.out.println(Arrays.deepToString(cars));
+
+//        System.out.println(seller.getMyCar(1));
+//        car1.sell(seller, buyer, 90000.0);
+
+        car1.isOwner(seller);
+        car1.isOwner(buyer);
+        car1.isOwner(me);
+        car1.isSold(seller,buyer);
+        car1.isSold(buyer,seller);
+        car1.transactions();
+        fiat.transactions();
+
     }
 }

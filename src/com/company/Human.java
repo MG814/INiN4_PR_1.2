@@ -92,14 +92,17 @@ public class Human {
 
     @Override
     public String toString() {
-        return "name: " + name + " lastname: " + lastname + " age: " + age;
+        return name + " " + lastname + " age: " + age;
     }
 
 
     public void removeCar(Car car) {
         for(int i = 0; i < this.garage.length; i++){
-            if(car == this.garage[i])
+            if(car == this.garage[i]){
                 this.garage[i] = null;
+                break;
+            }
+
         }
     }
 
@@ -146,4 +149,5 @@ public class Human {
         }
         System.out.println("Suma wartości aut wynosi: "+sum);
     }
+
 }
