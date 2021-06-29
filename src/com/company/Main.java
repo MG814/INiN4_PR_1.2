@@ -4,8 +4,8 @@ import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Pet;
 import com.company.devices.*;
-
 import java.util.Arrays;
+
 
 public class Main {
 
@@ -77,5 +77,23 @@ public class Main {
         car1.transactions();
         fiat.transactions();
 
+        Application newApp = new Application("superApp","2.46/8",44.90);
+        Application newApp2 = new Application("modernApp","2.46/8",0.0);
+        Application newApp3 = new Application("app","5.5",120.0);
+        Application newApp4 = new Application("application","1.0",0.0);
+        me.setMyPhone(mobilePhone);
+        mobilePhone.installNewApp(me,newApp);
+
+        mobilePhone.isInstall("suApp");
+        mobilePhone.isInstall(newApp);
+
+        mobilePhone.installNewApp(me,newApp2);
+        mobilePhone.installNewApp(me,newApp3);
+        mobilePhone.installNewApp(me,newApp4);
+        mobilePhone.freeApp();
+        mobilePhone.volumeApp();
+
+        mobilePhone.alphabetSort();
+        mobilePhone.priceSort();
     }
 }
